@@ -1,0 +1,3 @@
+spring:
+  thymeleaf:
+    cache: false     #默认是对模板进行缓存ture   前缀prefix:   后缀 suffix:

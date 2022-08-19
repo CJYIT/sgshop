@@ -1,0 +1,31 @@
+server:
+  port: 18085
+spring:
+  application:
+    name: search
+  data:
+#ES的配置
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 192.168.123.132:9300
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+#如果要禁用Feign里面的Hystrix  false  如果电脑配置够可以不配直接默认true
+feign:
+  hystrix:
+    enabled: true
+#超时配置        如果电脑配置够可以不配
+ribbon:
+  ReadTimeout: 300000
+#增加超时时间 增加了10      如果电脑配置够可以不配
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

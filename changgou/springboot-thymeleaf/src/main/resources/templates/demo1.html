@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--引入thymeleaf标签-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf模板引擎案例</title>
+</head>
+<body>
+<!--thymeleaf标签使用，需要在指定的标签上使用thymeleaf语法
+    th:text 输出文本内容
+    -->
+hello cjy<div th:text="${messages}"></div>
+<div>
+    th:action指定表单提交的路径
+    <form id="login-form" th:action="@{/test/hello}">
+        <button>提交</button>
+    </form>
+
+</div>
+<div>
+    th:each  循环标签
+    <table>
+        <tr>
+            <td>下标</td>
+            <td>id</td>
+            <td>name</td>
+            <td>address</td>
+        </tr>
+<!--定义一个变量user接收被循环的对象,第二个参数表示当前被循环对象的状态记录，
+例如第几个count、获取小标index,userSta，userSta-->
+        <tr th:each="user,userSta:${users}">
+            <td th:text="${userSta.index}">下标</td>
+            <td th:text="${user.id}">id</td>
+            <td th:text="${user.name}">name</td>
+            <td th:text="${user.address}">address</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    读取map的两种方式：<br/>
+    1知道map的key，根据key获取数据<br/>
+    2不知道key，循环的方式获取key然后获取值<br/>
+<!--    <span> 标签被用来组合文档中的行内元素-->
+    <h5>方式1</h5>
+    <div>
+        获取key=No的值:<span th:text="${dataMap.No}"></span><br/>
+        获取key=Address的值:<span th:text="${dataMap.address}"></span><br/>
+    </div>
+    ==============================================
+    <h5>方式2</h5>
+    <div th:each="map,mapStat:${dataMap}">
+        <span th:text="${map.key}"></span>:<span th:text="${map.value}"></span>
+    </div>
+    ==============================================
+    <div th:each="map,mapStat:${dataMap}">
+        <div th:text="${map}"></div>
+        key:<span th:text="${mapStat.current.key}"></span><br/>
+        value:<span th:text="${mapStat.current.value}"></span><br/>
+    </div>
+</div>
+    ==============================================
+<div>
+    Data数据获取
+    <span th:text="${#dates.format(now,'yyyy-MM-dd hh:ss:mm')}"></span>
+</div>
+<div>
+    if条件判断，unless不符合这个条件时候输出
+    <span th:if="${(age>=18)}">终于长大了！</span>
+    <span th:unless="${(age<18)}">你是未成年人！</span>
+</div>
+    ==============================================
+<div>
+    下面是引入的公共模块,引入footer.html页面里面的copy
+    <div id="A" th:include="footer::copy"></div>
+</div>
+
+</body>
+</html>
