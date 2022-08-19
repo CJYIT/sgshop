@@ -703,7 +703,7 @@
                             <a th:href="@{${url}(pageNum=${pageInfo.upper})}">«上一页</a>
                         </li>
                         <li th:each="i:${#numbers.sequence(pageInfo.lpage,pageInfo.rpage)}" th:class="${pageInfo.currentpage}==${i}?'active':''">
-                            <a th:href="@{${url}(pageNum=${pageInfo.next})}" th:text="${i}"></a>
+                            <a th:href="@{${url}(pageNum=${i})}" th:text="${i}"></a>
                         </li>
                         <!--<li>
                            <a href="#">2</a>
