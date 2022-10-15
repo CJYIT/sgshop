@@ -26,7 +26,7 @@ hello cjy<div th:text="${messages}"></div>
             <td>name</td>
             <td>address</td>
         </tr>
-<!--定义一个变量user接收被循环的对象,第二个参数表示当前被循环对象的状态记录，
+<!--这里的使用方式与el差不多，定义一个变量user接收被循环的对象,第二个参数表示当前被循环对象的状态记录，
 例如第几个count、获取小标index,userSta，userSta-->
         <tr th:each="user,userSta:${users}">
             <td th:text="${userSta.index}">下标</td>

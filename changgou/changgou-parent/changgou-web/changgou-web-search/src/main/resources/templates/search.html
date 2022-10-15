@@ -719,7 +719,7 @@
                         </li>-->
                         <!--                     <li class="dotted"><span>...</span></li>-->
                         <li class="next">
-                            <a href="#">下一页»</a>
+                            <a href="#" th:href="@{${url}(pageNum=${pageInfo.next})}">下一页»</a>
                         </li>
                     </ul>
                     <div><span>共<em th:text="${pageInfo.last}"></em>页&nbsp;</span><span>

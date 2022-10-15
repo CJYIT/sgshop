@@ -1,6 +1,9 @@
 server:
   port: 18085
 spring:
+  #main是为了解决A bean with that name has already been defined in null and overriding is disabled.的错误
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: search
   data:

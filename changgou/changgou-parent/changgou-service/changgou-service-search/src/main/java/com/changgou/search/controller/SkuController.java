@@ -28,12 +28,12 @@ public class SkuController {
     @GetMapping
     public Map search(@RequestParam(required = false) Map<String,String> searchMap){
         Object pageNum = searchMap.get("pageNum");
-        if(pageNum==null){
-            searchMap.put("pageNum","1");
+        if(pageNum==null){//注意曾这里没有传pageNum报错
+            searchMap.put("pageNum","1");//默认查询第一页
         }
         if(pageNum instanceof Integer){
             searchMap.put("pageNum",pageNum.toString());
-        }
+    }
         return  skuService.search(searchMap);
     }
 
