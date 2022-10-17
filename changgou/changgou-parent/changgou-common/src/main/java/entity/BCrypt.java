@@ -53,7 +53,7 @@ import java.security.SecureRandom;
  * String stronger_salt = BCrypt.gensalt(12)<br />
  * </code>
  * <p>
- * The amount of work increases exponentially (2**log_rounds), so 
+ * The amount of work increases exponentially (2**log_rounds), so
  * each increment is twice as much work. The default log_rounds is
  * 10, and the valid range is 4 to 30.
  *
@@ -763,7 +763,7 @@ public class BCrypt {
 		return gensalt(GENSALT_DEFAULT_LOG2_ROUNDS);
 	}
 
-	/**
+	/**plaintext明文，hashed密文
 	 * Check that a plaintext password matches a previously hashed
 	 * one
 	 * @param plaintext	the plaintext password to verify

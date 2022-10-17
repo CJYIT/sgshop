@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /****
- * @Author:shenkunlin
+ * @Author:cjy
  * @Description:UndoLog构建
  * @Date 2019/6/14 19:13
  *****/

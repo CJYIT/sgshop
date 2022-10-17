@@ -14,7 +14,36 @@
     <packaging>pom</packaging>
 
     <description>
-        网关的相关模块的父工程
+        网关的相关模块的父工程()
     </description>
+    <modules>
+        <module>changgou-gateway-web</module>
+    </modules>
+
+
+    <!--网关依赖，网关有多套，直接将依赖放在父工程比较方便后面使用-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+<!--同样每个微服务都有可能使用redis做限流，所以在父工程中引入-->
+        <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <version>2.1.3.RELEASE</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
